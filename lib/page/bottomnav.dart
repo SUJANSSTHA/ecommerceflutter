@@ -39,7 +39,7 @@ class _ButtonNavState extends State<ButtonNav> {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         height: 65.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff2f2f2),
         color: Colors.black,
         animationDuration: Duration(microseconds: 5000),
 
