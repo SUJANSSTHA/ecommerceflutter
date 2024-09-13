@@ -1,9 +1,8 @@
 import 'package:ecommerceflutter/firebase_options.dart';
-import 'package:ecommerceflutter/page/onbording.dart';
+import 'package:ecommerceflutter/page/bottomnav.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'page/home.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +30,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const Onbording(),
-      home: const Home(),
+      // home: const Home(),
+      home: ButtonNav(),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

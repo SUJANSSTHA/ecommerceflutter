@@ -20,91 +20,87 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xf2f2f2f2),
-      body: Container(
-        margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hey,Sujan",
-                      style: AppWidget.bolTextFeildStyle(),
-                    ),
-                    Text(
-                      "Good Morning",
-                      style: AppWidget.lightTextFeildStyle(),
-                    ),
-                  ],
-                ),
-                ClipRRect(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Hey, Sujan",
+                        style: AppWidget.bolTextFeildStyle(),
+                      ),
+                      Text(
+                        "Good Morning",
+                        style: AppWidget.lightTextFeildStyle(),
+                      ),
+                    ],
+                  ),
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
                       "images/boy.jpg",
                       height: 70.0,
                       width: 70.0,
                       fit: BoxFit.cover,
-                    )),
-              ],
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Container(
-                // padding: EdgeInsets.only(left: 20.0),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30.0),
+              Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
-                //* this MediaQuery.of(context).size that it can use complete widget of the screen
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 width: MediaQuery.of(context).size.width,
                 child: TextField(
                   decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Search Products",
-                      hintStyle: AppWidget.lightTextFeildStyle(),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.black,
-                      )),
-                )),
-            SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Categories",
-                  style: AppWidget.seamiboldTextFeildStyle(),
-                ),
-                Text(
-                  "Sea all",
-                  style: TextStyle(
-                    color: Color(0xFFfd6f3e),
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+                    border: InputBorder.none,
+                    hintText: "Search Products",
+                    hintStyle: AppWidget.lightTextFeildStyle(),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              children: [
-                Container(
-                  height: 130.0,
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Categories",
+                    style: AppWidget.seamiboldTextFeildStyle(),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                      color: Color(0xFFfd6f3e),
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                children: [
+                  Container(
+                    height: 130.0,
                     padding: EdgeInsets.all(20),
                     margin: EdgeInsets.only(right: 20.0),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFfd6f3e)),
-                    // height: 90,
-                    // width: 90,
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFFfd6f3e),
+                    ),
                     child: Center(
                       child: Text(
                         "All",
@@ -114,41 +110,114 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    )),
-                Expanded(
-                  child: Container(
-                    // margin: EdgeInsets.only(left: 20.0),
-                    height: 130.0,
-                    child: ListView.builder(
-                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 130.0,
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
                         itemCount: categories.length,
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return CategoryTile(image: categories[index]);
-                        }),
+                        },
+                      ),
+                    ),
                   ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "All Product",
+                    style: AppWidget.seamiboldTextFeildStyle(),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                      color: Color(0xFFfd6f3e),
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              Container(
+                height: 240,
+                child: ListView(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    buildProductItem("images/headphone2.png", "Headphone", "\$100"),
+                    buildProductItem("images/watch2.png", "Apple Watch", "\$300"),
+                    buildProductItem("images/laptop2.png", "Laptop", "\$1000"),
+                    buildProductItem("images/headphone2.png", "Headphone", "\$100"),
+                  ],
                 ),
-              ],
-            ),
-            ListView(
-              children: [
-                Container(
-                  child: 
-                  Image.asset("images/headphone2.png"),
-                )
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget buildProductItem(String imagePath, String productName, String price) {
+    return Container(
+      margin: EdgeInsets.only(right: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Column(
+        children: [
+          Image.asset(
+            imagePath,
+            height: 120.0,
+            width: 120.0,
+            fit: BoxFit.cover,
+          ),
+          Text(
+            productName,
+            style: AppWidget.seamiboldTextFeildStyle(),
+          ),
+          SizedBox(height: 10.0),
+          Row(
+            children: [
+              Text(
+                price,
+                style: TextStyle(
+                  color: Color(0xFFfd6f3e),
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(width: 40.0),
+              Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Color(0xFFfd6f3e),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Icon(Icons.add, color: Colors.white),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
 }
 
 class CategoryTile extends StatelessWidget {
-  // const CategoryTile({super.key});
-  String image;
+  final String image;
+
   CategoryTile({required this.image});
 
   @override
@@ -157,7 +226,9 @@ class CategoryTile extends StatelessWidget {
       padding: EdgeInsets.all(20),
       margin: EdgeInsets.only(right: 20.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white),
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+      ),
       height: 90,
       width: 90,
       child: Column(
@@ -168,8 +239,7 @@ class CategoryTile extends StatelessWidget {
             height: 50,
             fit: BoxFit.cover,
           ),
-          // SizedBox(height: 10.0,),
-          Icon(Icons.arrow_forward)
+          Icon(Icons.arrow_forward),
         ],
       ),
     );
