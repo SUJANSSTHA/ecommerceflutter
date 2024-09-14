@@ -1,17 +1,15 @@
-// import 'package:flutter/foundation.dart';
-// import 'package:flutter/widgets.dart';
-import 'package:ecommerceflutter/page/signup.dart';
+import 'package:ecommerceflutter/page/login.dart';
 import 'package:ecommerceflutter/widget/support_widget.dart';
 import 'package:flutter/material.dart';
 
-class LogIn extends StatefulWidget {
-  const LogIn({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LogInState extends State<LogIn> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +20,9 @@ class _LogInState extends State<LogIn> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset("images/login.png"),
+              Image.asset("images/signup.png"),
               Text(
-                "Sign In",
+                "Sign up",
                 style: AppWidget.seamiboldTextFeildStyle(),
               ),
               SizedBox(
@@ -33,6 +31,24 @@ class _LogInState extends State<LogIn> {
               Text(
                 "Please Enter the details to\n below to continue ",
                 style: AppWidget.lightTextFeildStyle(),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                "Name ",
+                style: AppWidget.seamiboldTextFeildStyle(),
+              ),
+              // SizedBox(height: 10.0,),
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                decoration: BoxDecoration(
+                    color: Color(0xFFf2f5f9),
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none, hintText: "Enter Your Name"),
+                ),
               ),
               SizedBox(
                 height: 20.0,
@@ -74,18 +90,18 @@ class _LogInState extends State<LogIn> {
               SizedBox(
                 height: 10.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                        color: Colors.green,
-                        fontSize: 10.0,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Text(
+              //       "Forgot Password?",
+              //       style: TextStyle(
+              //           color: Colors.green,
+              //           fontSize: 10.0,
+              //           fontWeight: FontWeight.w500),
+              //     ),
+              //   ],
+              // ),
               SizedBox(
                 height: 10.0,
               ),
@@ -99,7 +115,7 @@ class _LogInState extends State<LogIn> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: Text(
-                      "LOGIN",
+                      "SIGNUP",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
@@ -116,19 +132,18 @@ class _LogInState extends State<LogIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't Havae an accout?   ",
+                    "Already have an accout? ",
                     style: AppWidget.lightTextFeildStyle(),
                   ),
                    GestureDetector(
-                    onTap: (){
-                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup()));
-
+                     onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LogIn()));
                     },
                      child: Text(
-                      "Sign Up",
+                      "LogIn",
                       style: TextStyle(
                           color: Colors.green,
-                          fontSize: 10.0,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.w500),
                                        ),
                    ),
