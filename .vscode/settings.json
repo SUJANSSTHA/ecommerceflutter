@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/FlutterApp/ecommerceflutter/linux"
+    "cmake.sourceDirectory": "D:/FlutterApp/ecommerceflutter/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
