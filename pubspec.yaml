@@ -50,6 +50,7 @@ dev_dependencies:
   curved_navigation_bar: ^1.0.6
   firebase_auth: ^5.2.1
   cloud_firestore: ^5.4.1
+  random_string: ^2.3.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

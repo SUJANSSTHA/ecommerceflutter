@@ -1,5 +1,6 @@
 // import 'package:flutter/foundation.dart';
 // import 'package:flutter/widgets.dart';
+import 'package:ecommerceflutter/page/bottomnav.dart';
 import 'package:ecommerceflutter/page/home.dart';
 import 'package:ecommerceflutter/page/signup.dart';
 import 'package:ecommerceflutter/widget/support_widget.dart';
@@ -28,7 +29,7 @@ class _LogInState extends State<LogIn> {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonNav()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
