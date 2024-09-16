@@ -169,7 +169,7 @@ class _HomeState extends State<Home> {
 
   Widget buildProductItem(String imagePath, String productName, String price) {
     return Container(
-      margin: EdgeInsets.only(right: 20.0),
+      margin: EdgeInsets.only(right: 20.0,bottom: 20.0),
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       decoration: BoxDecoration(
         color: Colors.white,

@@ -1,7 +1,6 @@
 // import 'package:flutter/foundation.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:ecommerceflutter/page/bottomnav.dart';
-import 'package:ecommerceflutter/page/home.dart';
 import 'package:ecommerceflutter/page/signup.dart';
 import 'package:ecommerceflutter/widget/support_widget.dart';
 import 'package:flutter/material.dart';
