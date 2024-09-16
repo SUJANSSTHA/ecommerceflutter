@@ -1,11 +1,11 @@
 import 'package:ecommerceflutter/page/bottomnav.dart';
 import 'package:ecommerceflutter/page/login.dart';
 import 'package:ecommerceflutter/services/data.dart';
+import 'package:ecommerceflutter/services/shared_pref.dart';
 import 'package:ecommerceflutter/widget/support_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:random_string/random_string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -37,20 +37,25 @@ class _SignupState extends State<Signup> {
               "Registered Successfully",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             )));
-            //cloud database
-            String Id = randomAlphaNumeric(10);
-            Map<String, dynamic> userInfoMap={
-              "Name": nameController.text,
-              "Email": emailController.text,
-              "Id": Id,
-              "Image":
-            "https://firebasestorage.googleapis.com/v0/b/barberapp-ebcc1.appspot.com/o/icon1.png?alt=media&token=0fad24a5-a01b-4d67-b4a0-676fbc75b34a"
 
-
-            };
-            // upload data to the firebase database
-            await DatabaseMethods().addUserDetails(userInfoMap, Id);
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ButtonNav()));
+        String Id = randomAlphaNumeric(10);
+        // shared_preference
+        await sharedPreferenceHelper().saveUserEmail(emailController.text);
+        await sharedPreferenceHelper().saveUserId(Id);
+        await sharedPreferenceHelper().saveUserName(nameController.text);
+        await sharedPreferenceHelper().saveUserImage("https://firebasestorage.googleapis.com/v0/b/barberapp-ebcc1.appspot.com/o/icon1.png?alt=media&token=0fad24a5-a01b-4d67-b4a0-676fbc75b34a");
+        //cloud database
+        Map<String, dynamic> userInfoMap = {
+          "Name": nameController.text,
+          "Email": emailController.text,
+          "Id": Id,
+          "Image":
+              "https://firebasestorage.googleapis.com/v0/b/barberapp-ebcc1.appspot.com/o/icon1.png?alt=media&token=0fad24a5-a01b-4d67-b4a0-676fbc75b34a"
+        };
+        // upload data to the firebase database
+        await DatabaseMethods().addUserDetails(userInfoMap, Id);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ButtonNav()));
       } on FirebaseException catch (e) {
         if (e.code == 'weak-password') {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(

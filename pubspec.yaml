@@ -51,6 +51,7 @@ dev_dependencies:
   firebase_auth: ^5.2.1
   cloud_firestore: ^5.4.1
   random_string: ^2.3.1
+  shared_preferences: ^2.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
