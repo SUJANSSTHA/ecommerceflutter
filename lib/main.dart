@@ -1,5 +1,5 @@
+import 'package:ecommerceflutter/Admin/add_product.dart';
 import 'package:ecommerceflutter/firebase_options.dart';
-import 'package:ecommerceflutter/page/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
       // home: const Home(),
       // home: ProductDetails(),
       // home: LogIn(),
-      home:Signup(),
+      home: AddProduct(),
+      // home: AdminLogin(),
+      // home:Signup(),
       // home: ButtonNav(),
 
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
